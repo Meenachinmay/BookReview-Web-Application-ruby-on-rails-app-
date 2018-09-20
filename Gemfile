@@ -37,7 +37,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'better_errors', '~> 2.5'
 gem 'simple_form', '~> 4.0', '>= 4.0.1'
 gem 'devise', '~> 4.5'
+gem 'activerecord-reset-pk-sequence'
 
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'jquery-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

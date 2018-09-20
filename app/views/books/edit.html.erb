@@ -1,3 +1,13 @@
 <h2>Edit the Book</h2>
 
-<%= render  "form" %>
+<%= simple_form_for @book, :html => {:multipart => true } do |f|%>
+    <%= f.select :category_id, @categories %>
+    <%= f.input :title, label: "Book Title" %>
+    <%= f.input :description %>
+    <%= f.input :author, label: "Author" %>
+    <% if @book.title.to_s.strip.empty? == false %>    
+        <button type="submit" class="btn btn-outline-success">Update Book</button>
+    <% else %>
+        <button type="submit" class="btn btn-outline-success">Create Book</button>
+    <% end %>
+<% end %>

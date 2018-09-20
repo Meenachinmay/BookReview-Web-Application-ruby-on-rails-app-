@@ -4,12 +4,12 @@
     <title>BookReview</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <%= stylesheet_link_tag "BOOTSTRAP_FOUR", media: 'all'%> 
-    
     <%= javascript_include_tag 'JSONE'%>
     <%= javascript_include_tag 'JSTWO'%>
     <%= javascript_include_tag 'JSTHREE'%>
@@ -18,7 +18,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <%= link_to  "Book Review", root_path, class:"navbar-brand" %>
+        <%= link_to "Book Review", root_path, class:"navbar-brand" %>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
               <li>
@@ -26,7 +26,7 @@
               </li>
              <% if user_signed_in? %>
                 <li>
-                  <%= link_to  "Sign Out", destroy_user_session_path, class:"nav-link", method: :delete %>
+                  <%= link_to  "Sign Out", destroy_user_session_path, method: :delete, class:"nav-link"%>
                 </li>
               <% else %>
                 <li>
@@ -34,7 +34,21 @@
                 </li>
              <% end %>
           </ul>
-          <ul class="navbar-nav">
+          <ul class="navbar-nav navbar-right">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown" role="menu">
+              <% cnt = 0 %>
+                <% Category.all.each do |category| %>
+                  <% count = Category.count %>
+                  <li><%= link_to  category.name, books_path(category: category.name), class:"dropdown-item" %> </li>
+                  <% cnt = cnt + 1 %>
+                  <% if cnt < count %>
+                    <div class="dropdown-divider"></div>
+                  <% end %>
+                <% end %>
+              </ul>
+            </li>
             <% if user_signed_in? %>
               <li>
                 <%= link_to  "Add Book", new_book_path, class:"nav-link"%>
