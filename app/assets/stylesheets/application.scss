@@ -10,4 +10,26 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- */
+ */ 
+ @mixin background-tile {
+	box-sizing: border-box;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 3px 3px 5px 6px #ccc;
+	padding: 1.5em 1.25em;
+}
+
+.book{
+    height: 350px;
+    width: 250px;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    @include background-tile;
+}
+
+.book-show{
+    height: 450px;
+    width: 325px;
+    border-radius: 5px;
+    @include background-tile;
+}

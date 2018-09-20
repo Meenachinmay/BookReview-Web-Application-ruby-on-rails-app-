@@ -37,6 +37,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'better_errors', '~> 2.5'
 gem 'simple_form', '~> 4.0', '>= 4.0.1'
 gem 'devise', '~> 4.5'
+gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem 'activerecord-reset-pk-sequence'
 
 gem 'bootstrap-sass', '~> 3.3.7'

@@ -1,0 +1,18 @@
+<div class="col-md-10">
+    <div class="edit-review-form">
+        <h1>Edit Review</h1>
+        <%= simple_form_for ([@book, @review]) do |f| %>
+            <div id="rating-form">
+                <label>Rating :</label>
+            </div>
+            <%= f.input :comment %>
+            <%= f.button :submit, :class => "btn-custom2" %>
+        <% end %>
+        <script>
+            $('#rating-form').raty({
+                path: '/assets/',
+                scoreName: 'review[rating]'
+            });
+        </script>
+    </div>
+</div>
